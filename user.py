@@ -1,4 +1,5 @@
 import sqlite3
+
 class User:
     def __init__(self, _id, username, password):
         self.id = _id
@@ -30,5 +31,6 @@ class User:
             user = cls(*row)
         else:
             user = None
+        connection.close()
         return user
 

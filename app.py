@@ -12,7 +12,6 @@ app.secret_key = os.getenv('SECRET_KEY')
 api = Api(app)
 jwt = JWT(app, authenticate, identity)
 
-
 items = []
 
 class Items(Resource):
