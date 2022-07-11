@@ -2,9 +2,9 @@ from flask import Flask, request
 from flask_restful import Resource, Api, reqparse
 from flask_jwt import JWT, jwt_required
 from security import authenticate, identity
-import sqlite3
 from dotenv import load_dotenv
 import os
+from collections.abc import Mapping
 
 app = Flask(__name__)
 load_dotenv()
