@@ -31,4 +31,7 @@ class Store(Resource):
 
 class Stores(Resource):
     def get(self):
-        return {'stores': [store.json() for store in StoreModel.query.all()]}
+        stores = StoreModel.find_all()
+        if stores:
+            return {'stores': [store.json() for store in StoreModel.find_all()]}
+        return {'message': 'No store found.'}, 404
