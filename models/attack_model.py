@@ -4,7 +4,6 @@ class AttackModel(db.Model): # change item to attack and price to state
     __tablename__ = 'attacks'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
-    #state = db.Column(db.Float(precision=2))
     state = db.Column(db.Integer)
 
 
