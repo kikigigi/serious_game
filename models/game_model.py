@@ -1,21 +1,26 @@
 from db import db
 
 
-class StoreModel(db.Model):
-    __tablename__ = 'stores'
+class GameModel(db.Model):# change from StoreModel to GameModel
+    ###tablename__ = 'stores'
+    __tablename__ = 'games'
+
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
 
-    items = db.relationship('ItemModel', lazy='dynamic')
+
+    #items = db.relationship('ItemModel', lazy='dynamic')
+    attacks = db.relationship('AttackModel', lazy='dynamic')
 
     def __init__(self, name):
         self.name = name
 
     def json(self):
-        return {'id': self.id, 'name': self.name, 'items': [item.json() for item in self.items.all()]}
+        #return {'id': self.id, 'name': self.name, 'items': [item.json() for item in self.items.all()]}
+        return {'id': self.id, 'name': self.name, 'attacks': [attack.json() for attack in self.attacks.all()]}
 
     @classmethod
-    def find_store_by_name(cls, name):
+    def find_game_by_name(cls, name):
         return cls.query.filter_by(name=name).first()
 
     @classmethod

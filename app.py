@@ -2,8 +2,10 @@ from flask import Flask, jsonify
 from flask_restful import Api
 from flask_jwt_extended import JWTManager #pip install flask-jwt-extended
 from resources.user import UserRegister, User, UserLogin, TokenRefresh, UserLogout
-from resources.item import Item, Items
-from resources.store import Store, Stores
+# from resources.item import Item, Items
+# from resources.store import Store, Stores
+from resources.attack import Attack, Attacks
+from resources.game import Game, Games
 from dotenv import load_dotenv
 import os
 from added_utility import get_frist_user ### added
@@ -67,15 +69,25 @@ def revoked_token_callback(jwt_header, jwt_payload):
 
 
 
-api.add_resource(Item, '/item/<string:name>')
-api.add_resource(Items, '/items')
+# api.add_resource(Item, '/item/<string:name>')
+# api.add_resource(Items, '/items')
+# api.add_resource(UserRegister, '/register')
+# api.add_resource(User, '/user/<int:user_id>')
+# api.add_resource(UserLogin, '/login')
+# api.add_resource(UserLogout, '/logout')
+# api.add_resource(TokenRefresh, '/refresh')
+# api.add_resource(Store, '/store/<string:name>')
+# api.add_resource(Stores, '/stores')
+
+api.add_resource(Attack, '/attack/<string:name>')
+api.add_resource(Attacks, '/attacks')
 api.add_resource(UserRegister, '/register')
 api.add_resource(User, '/user/<int:user_id>')
 api.add_resource(UserLogin, '/login')
 api.add_resource(UserLogout, '/logout')
 api.add_resource(TokenRefresh, '/refresh')
-api.add_resource(Store, '/store/<string:name>')
-api.add_resource(Stores, '/stores')
+api.add_resource(Game, '/game/<string:name>')
+api.add_resource(Games, '/games')
 
 
 
