@@ -1,6 +1,6 @@
 from db import db
 
-class AttackModel(db.Model): # change item to attack and price to state
+class AttackModel(db.Model):
     __tablename__ = 'attacks'
     id = db.Column(db.Integer, primary_key=True)
     name = db.Column(db.String(80))
